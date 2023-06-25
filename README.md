@@ -12,12 +12,12 @@ To ensure clarity, avoid unnecessary file and code movements, enabling reviewers
 
 ### Tasks:
 
-- [ ] **Task 1: Fetch and display the list of existing payments**
+- [x] **Task 1: Fetch and display the list of existing payments**
 
-    - [ ] Acesse o diretório ./frontend/src/pages e abra o arquivo PaymentsList.js.
-    - [ ] Dentro do componente PaymentsList, você precisará adicionar código para fazer uma solicitação GET à rota /api/payments do backend.
-    - [ ] Use uma biblioteca como axios para fazer a chamada de API a partir do frontend e recuperar a lista de pagamentos existentes.
-    - [ ] Armazene a lista de pagamentos em um estado no componente e renderize-a na tabela da página PaymentsList.
+    - [x] Acesse o diretório ./frontend/src/pages e abra o arquivo PaymentsList.js.
+    - [x] Dentro do componente PaymentsList, você precisará adicionar código para fazer uma solicitação GET à rota /api/payments do backend.
+    - [x] Use uma biblioteca como axios para fazer a chamada de API a partir do frontend e recuperar a lista de pagamentos existentes.
+    - [x] Armazene a lista de pagamentos em um estado no componente e renderize-a na tabela da página PaymentsList.
 
 - [ ] **Task 2: Handle form submission to create new payments**
 

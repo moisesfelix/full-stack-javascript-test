@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 // A fake database of payments.
 //
@@ -30,14 +30,53 @@ const allPayments = [
   },
 ];
 
+// Retrieve the list of existing payments
 router.get("/payments", function (req, res) {
   res.send({
     payments: allPayments,
   });
 });
 
+// Generate a unique ID for a new payment
+function generateUniqueID() {
+  const characters = "ABCDEFGHIJLMNOPQRSTUVXYZ1234567890";
+  let id = "";
+
+  while (id.length < 7) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    id += characters[randomIndex];
+  }
+
+  return id;
+}
+
+// Create a new payment
 router.post("/payments", function (req, res) {
-  res.status(500).send({ error: "Not implemented" });
+  // Retrieve the payment data from the request body
+  const { name, cardNumber, currency, amount } = req.body;
+
+  // Validate the required fields
+  if (!name || !cardNumber || !currency || !amount) {
+    return res.status(400).send({ error: "Missing required fields" });
+  }
+
+  // Generate a unique ID for the payment
+  const id = generateUniqueID();
+
+  // Create a new payment object
+  const payment = {
+    id,
+    name,
+    cardNumber,
+    currency,
+    amount,
+  };
+
+  // Add the new payment to the payments array
+  allPayments.push(payment);
+
+  // Return a success response with the created payment
+  res.status(201).send(payment);
 });
 
 module.exports = router;

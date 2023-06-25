@@ -1,17 +1,24 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 function PaymentCreate() {
   const navigate = useNavigate();
 
-  // The payment can be created with `POST /api/payments`
-  const submit = (ev) => {
+  const submit = async (ev) => {
     ev.preventDefault();
 
     // Create object with new payment details from the submitted form.
     const payment = Object.fromEntries(new FormData(ev.target));
-    console.log(payment);
 
-    navigate("/");
+    try {
+      // Make a POST request to create a new payment
+      const response = await axios.post('/api/payments', payment);
+      console.log(response.data);
+
+      navigate('/'); // Redirect to the payments list
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
