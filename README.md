@@ -19,13 +19,13 @@ To ensure clarity, avoid unnecessary file and code movements, enabling reviewers
     - [x] Use uma biblioteca como axios para fazer a chamada de API a partir do frontend e recuperar a lista de pagamentos existentes.
     - [x] Armazene a lista de pagamentos em um estado no componente e renderize-a na tabela da página PaymentsList.
 
-- [ ] **Task 2: Handle form submission to create new payments**
+- [x] **Task 2: Handle form submission to create new payments**
 
-    - [ ] Acesse o diretório ./frontend/src/pages e abra o arquivo PaymentCreate.js.
-    - [ ] Dentro do componente PaymentCreate, você precisará adicionar código para lidar com o envio do formulário.
-    - [ ] Crie um estado no componente para armazenar os valores dos campos do formulário.
-    - [ ] Implemente uma função de manipulação de envio que faça uma solicitação POST à rota /api/payments do backend com os dados do pagamento.
-    - [ ] Após o envio bem-sucedido, redirecione o navegador para a página PaymentsList, onde o novo pagamento será exibido.
+    - [x] Acesse o diretório ./frontend/src/pages e abra o arquivo PaymentCreate.js.
+    - [x] Dentro do componente PaymentCreate, você precisará adicionar código para lidar com o envio do formulário.
+    - [x] Crie um estado no componente para armazenar os valores dos campos do formulário.
+    - [x] Implemente uma função de manipulação de envio que faça uma solicitação POST à rota /api/payments do backend com os dados do pagamento.
+    - [x] Após o envio bem-sucedido, redirecione o navegador para a página PaymentsList, onde o novo pagamento será exibido.
 
 - [ ] **Task 3: Secure the payment-api with an API key**
 
