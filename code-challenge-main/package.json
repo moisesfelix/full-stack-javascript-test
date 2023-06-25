@@ -1,0 +1,10 @@
+{
+  "name": "full-stack-js-test",
+  "scripts": {
+    "start": "node -r dotenv/config ./node_modules/.bin/concurrently 'cd backend && npm start' 'cd frontend && npm start' 'cd payment-api && npm start'"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
