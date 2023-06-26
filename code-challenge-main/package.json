@@ -1,6 +1,7 @@
 {
   "name": "full-stack-js-test",
   "scripts": {
+    "install-start": "npm install && node -r dotenv/config ./node_modules/.bin/concurrently 'npm --prefix backend install && npm --prefix backend start' 'npm --prefix frontend install && npm --prefix frontend start' 'npm --prefix payment-api install && npm --prefix payment-api start' 'npm --prefix auth-api install && npm --prefix auth-api start'",
     "start": "node -r dotenv/config ./node_modules/.bin/concurrently 'cd backend && npm start' 'cd frontend && npm start' 'cd payment-api && npm start' 'cd auth-api && npm start'"
   },
   "dependencies": {

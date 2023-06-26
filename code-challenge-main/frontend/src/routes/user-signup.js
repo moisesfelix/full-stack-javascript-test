@@ -119,8 +119,8 @@ const SignUp = () => {
                     />
                     {passwordError && <p className="input-error error">{passwordError}</p>}
                 </div>
-                <button type="submit" className="signup-button">
-                    Sign Up
+                <button type="submit" className="register-button ">
+                    Register
                 </button>
                 {successMessage && <p className="success-message">{successMessage}</p>}
             </form>
