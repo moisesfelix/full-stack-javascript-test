@@ -1,14 +1,14 @@
 const jwt = require('jsonwebtoken')
-const SECRET = process.env.SECRET
+const PAYMENT_API_KEY = process.env.PAYMENT_API_KEY
 module.exports = {
     issue(payload, expiresIn) {
 
-        return jwt.sign(payload, SECRET, {
+        return jwt.sign(payload, PAYMENT_API_KEY, {
             expiresIn
         })
     },
     verifyToken(token) {
-        const SECRET = process.env.SECRET
-        return jwt.verify(token, SECRET)
+        const PAYMENT_API_KEY = process.env.PAYMENT_API_KEY
+        return jwt.verify(token, PAYMENT_API_KEY)
     }
 }
