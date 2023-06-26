@@ -10,5 +10,29 @@
     "name": "Moises",
     "password": "$2a$10$w6fljjGivAPAXsPj/xsazedRNLGvtEuE6Gy7U.om9jidTBbKXBEca",
     "id": "1BB6QOT"
+  },
+  {
+    "email": "moises.vanilla.js@gmail.com",
+    "name": "test",
+    "password": "$2a$10$AlTPgLmbdzk.0lW2odmpqe9tgxpzESYMoV6L3xH9bxQMaXK042F5G",
+    "id": "A2DZX3R"
+  },
+  {
+    "email": "moises.vanilla.js@gmail.com",
+    "name": "Moisés",
+    "password": "$2a$10$l9T2CBBL1bIyKMXC0.XwNuKj5ZqBV0/NK/ZtEWR.DJyQxr.eu2uA.",
+    "id": "9J3DVFQ"
+  },
+  {
+    "email": "moises.vanilla.js@gmail.com",
+    "name": "Moisés",
+    "password": "$2a$10$zOOhwYJRlfqlk9VMqhp7JeHOI84K8/omcFuiIAgt.Lu1Vb/sqp8GO",
+    "id": "PQZB2FS"
+  },
+  {
+    "email": "moises.vanilla.js@gmail.com",
+    "name": "Moisés",
+    "password": "$2a$10$3uB19Je0jsPCp/1GiSq6leDav2M6nts84WFU2wD6W6yD9TrBx508u",
+    "id": "H86BJNA"
   }
 ]

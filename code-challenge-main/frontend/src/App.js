@@ -6,6 +6,7 @@ import PaymentCreate from './routes/payment-create';
 import PaymentsList from './routes/payments-list';
 import UserLogin from './routes/user-login';
 import UserSignup from './routes/user-signup';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -20,19 +21,22 @@ function App() {
     </AuthProvider>
   );
 }
-alert(process.env.PORT)
+
 function PrivateRoutes() {
-  //  const { isAuth } = useAuth();
+  const { user, logout } = useAuth();
 
   if (!localStorage.getItem("token")) {
     return <Navigate to="/login" />;
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<PaymentsList />} />
-      <Route path="/create" element={<PaymentCreate />} />
-    </Routes>
+    <div>
+      <Header user={user} logout={logout} />
+      <Routes>
+        <Route path="/" element={<PaymentsList />} />
+        <Route path="/create" element={<PaymentCreate />} />
+      </Routes>
+    </div>
   );
 }
 

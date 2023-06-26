@@ -45,5 +45,15 @@ To ensure clarity, avoid unnecessary file and code movements, enabling reviewers
 
 ---
 
-**Note:** This is an example README.md file. Please update it with your own project details, instructions, and progress.
+**Note:** Este projeto Full Stack JavaScript permite que os usuários criem uma conta e façam login para gerenciar uma lista de pagamentos. A autenticação é realizada através de tokens, garantindo a segurança das rotas de pagamento.
+
+Para começar, você precisa criar uma conta fornecendo as informações necessárias. Em seguida, faça o login utilizando os dados de acesso criados anteriormente. Com o login bem-sucedido, você terá acesso à funcionalidade completa da aplicação.
+
+Ao estar autenticado, você pode criar novos pagamentos, preenchendo os detalhes necessários. Além disso, é possível visualizar a lista de pagamentos existentes, que será exibida na página inicial após o login.
+
+A utilização de tokens para validação das rotas de pagamento garante que apenas usuários autenticados possam criar e visualizar a lista de pagamentos. Dessa forma, a segurança da aplicação é garantida.
+
+Sinta-se à vontade para explorar e utilizar as funcionalidades do projeto. Em caso de dúvidas ou problemas, não hesite em entrar em contato com a equipe responsável.
+
+Aproveite a experiência e desfrute da gestão simplificada da lista de pagamentos!
 

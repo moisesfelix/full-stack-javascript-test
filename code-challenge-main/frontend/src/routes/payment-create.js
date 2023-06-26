@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-
-//import './PaymentCreate.css';
+import './styles/PaymentCreate.css';
 
 function PaymentCreate() {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     cardNumber: '',
     currency: '',
     amount: '',
   });
 
-  const [formErrors, setFormErrors] = useState({
+  const [formErrors, setFormErrors] = React.useState({
     name: '',
     cardNumber: '',
     currency: '',
@@ -99,12 +98,11 @@ function PaymentCreate() {
     }
 
     try {
-      // Defina o cabeçalho "Authorization" com o token JWT
-      const token = localStorage.getItem("token")
+      const token = localStorage.getItem('token');
       const headers = {
         Authorization: `Bearer ${token}`,
       };
-      const payment = formData
+      const payment = formData;
       const response = await axios.post('/api/payments', payment, { headers });
       console.log(response.data);
 
@@ -115,36 +113,40 @@ function PaymentCreate() {
   };
 
   return (
-    <form className="payment-create-form" onSubmit={submit}>
-      <div>
-        <label>Name</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        {formErrors.name && <span className="error">{formErrors.name}</span>}
-      </div>
-      <div>
-        <label>Card Number</label>
-        <input type="text" name="cardNumber" value={formData.cardNumber} onChange={handleCardNumberChange} />
-        {formErrors.cardNumber && <span className="error">{formErrors.cardNumber}</span>}
-      </div>
-      <div>
-        <label>Currency</label>
-        <select name="currency" value={formData.currency} onChange={handleChange}>
-          <option value=""></option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="USD">USD</option>
-        </select>
-        {formErrors.currency && <span className="error">{formErrors.currency}</span>}
-      </div>
-      <div>
-        <label>Amount</label>
-        <input type="number" name="amount" value={formData.amount} onChange={handleChange} />
-        {formErrors.amount && <span className="error">{formErrors.amount}</span>}
-      </div>
-      <div>
-        <button type="submit">Create</button>
-      </div>
-    </form>
+    <div className="payment-create-container">
+      <h2 className="payment-create-title">Create Payment</h2>
+      <form className="payment-create-form" onSubmit={submit}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+          {formErrors.name && <span className="error">{formErrors.name}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" name="cardNumber" value={formData.cardNumber} onChange={handleCardNumberChange} />
+          {formErrors.cardNumber && <span className="error">{formErrors.cardNumber}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="currency">Currency</label>
+          <select id="currency" name="currency" value={formData.currency} onChange={handleChange}>
+            <option value=""></option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="USD">USD</option>
+          </select>
+          {formErrors.currency && <span className="error">{formErrors.currency}</span>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="amount">Amount</label>
+          <input type="number" id="amount" name="amount" value={formData.amount} onChange={handleChange} />
+          {formErrors.amount && <span className="error">{formErrors.amount}</span>}
+        </div>
+        <div className="form-buttons">
+          <button className="button-cancel" onClick={() => navigate('/')}>Cancel</button>
+          <button type="submit" className="button-create">Create</button>
+        </div>
+      </form>
+    </div>
   );
 }
 
