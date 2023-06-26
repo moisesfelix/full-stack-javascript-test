@@ -17,7 +17,7 @@ const PaymentsList = () => {
       const headers = {
         Authorization: `Bearer ${token}`,
       };
-      const response = await axios.get('http://localhost:3001/api/payments', { headers });
+      const response = await axios.get('api/payments', { headers });
       setPayments(response.data.payments);
     } catch (error) {
       console.error(error);
