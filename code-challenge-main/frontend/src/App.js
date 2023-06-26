@@ -1,21 +1,39 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PaymentCreate from "./routes/payment-create.js";
-import PaymentsList from "./routes/payments-list.js";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './AuthContext';
 
-const routes = [
-  {
-    path: "/",
-    element: <PaymentsList />,
-  },
-  {
-    path: "/create",
-    element: <PaymentCreate />,
-  },
-];
+import PaymentCreate from './routes/payment-create';
+import PaymentsList from './routes/payments-list';
+import UserLogin from './routes/user-login';
+import UserSignup from './routes/user-signup';
 
 function App() {
-  const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<UserLogin />} />
+          <Route path="/register" element={<UserSignup />} />
+          <Route path="/*" element={<PrivateRoutes />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
+alert(process.env.PORT)
+function PrivateRoutes() {
+  //  const { isAuth } = useAuth();
+
+  if (!localStorage.getItem("token")) {
+    return <Navigate to="/login" />;
+  }
+
+  return (
+    <Routes>
+      <Route path="/" element={<PaymentsList />} />
+      <Route path="/create" element={<PaymentCreate />} />
+    </Routes>
+  );
 }
 
 export default App;

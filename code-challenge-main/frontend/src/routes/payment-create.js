@@ -99,7 +99,13 @@ function PaymentCreate() {
     }
 
     try {
-      const response = await axios.post('/api/payments', formData);
+      // Defina o cabeçalho "Authorization" com o token JWT
+      const token = localStorage.getItem("token")
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      const payment = formData
+      const response = await axios.post('/api/payments', payment, { headers });
       console.log(response.data);
 
       navigate('/');

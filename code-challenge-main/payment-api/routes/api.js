@@ -42,13 +42,17 @@ function generateUniqueID() {
   const characters = "ABCDEFGHIJLMNOPQRSTUVXYZ1234567890";
   let id = "";
 
-  while (id.length < 7) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    id += characters[randomIndex];
-  }
+  do {
+    id = "";
+    while (id.length < 7) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      id += characters[randomIndex];
+    }
+  } while (allPayments.some((payment) => payment.id === id));
 
   return id;
 }
+
 
 // Create a new payment
 router.post("/payments", function (req, res) {

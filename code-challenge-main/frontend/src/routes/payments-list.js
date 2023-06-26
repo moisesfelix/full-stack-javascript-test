@@ -11,7 +11,15 @@ const PaymentsList = () => {
 
   const fetchPayments = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/payments');
+      // Defina o cabeçalho "Authorization" com o token JWT
+      const token = localStorage.getItem("token")
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      console.log({
+        token
+      })
+      const response = await axios.get('http://localhost:3001/api/payments', { headers });
       console.log(response.data.payments); // Verifique o valor de response.data.payments no console
       setPayments(response.data.payments);
     } catch (error) {

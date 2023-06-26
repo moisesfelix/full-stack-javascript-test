@@ -2,15 +2,12 @@ var createError = require("http-errors");
 var express = require("express");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const cors = require("cors")
-var apiRouter = require("./routes/api");
+
 var indexRouter = require("./routes/index");
-var authRouter = require("./routes/auth");
+var apiRouter = require("./routes/api");
 
 var app = express();
 
-// Enable CORS with custom options
-app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -18,7 +15,6 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/api", apiRouter);
-app.use("/api", authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
